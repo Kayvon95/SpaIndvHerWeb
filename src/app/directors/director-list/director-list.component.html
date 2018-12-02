@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button
+      class="btn btn-success"
+      >Add Director</button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-director-item
+    *ngFor="let directorElement of directors; let i = index"
+    [director]="directorElement"
+    [index]=i
+    >
+    </app-director-item>
+  </div>
+</div>
