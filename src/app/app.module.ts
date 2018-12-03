@@ -9,6 +9,7 @@ import { DirectorListComponent } from './directors/director-list/director-list.c
 import { DirectorItemComponent } from './directors/director-item/director-item.component';
 
 import { DirectorService } from './directors/director.service';
+import { MoviesComponent } from './movies/movies.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DirectorService } from './directors/director.service';
     HeaderComponent,
     DirectorsComponent,
     DirectorListComponent,
-    DirectorItemComponent
+    DirectorItemComponent,
+    MoviesComponent
   ],
   imports: [
     BrowserModule
