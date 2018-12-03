@@ -10,6 +10,7 @@ import { DirectorItemComponent } from './directors/director-item/director-item.c
 
 import { DirectorService } from './directors/director.service';
 import { MoviesComponent } from './movies/movies.component';
+import { ActorsComponent } from './actors/actors.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MoviesComponent } from './movies/movies.component';
     DirectorsComponent,
     DirectorListComponent,
     DirectorItemComponent,
-    MoviesComponent
+    MoviesComponent,
+    ActorsComponent
   ],
   imports: [
     BrowserModule
