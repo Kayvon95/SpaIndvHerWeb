@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DirectorService} from './director.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-directors',
@@ -9,7 +10,9 @@ import {DirectorService} from './director.service';
 })
 export class DirectorsComponent implements OnInit {
 
-  constructor(private directorService: DirectorService) { }
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              private directorService: DirectorService) { }
 
   ngOnInit() {
   }

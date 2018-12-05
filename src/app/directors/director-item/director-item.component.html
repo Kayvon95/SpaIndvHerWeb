@@ -3,5 +3,7 @@
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{ director.firstName}} {{ director.lastName }}</h4>
     <p class="list-group-item-text">{{ director.isActor}}</p>
+    <p *ngIf="director.isActor" class="list-group-item-text">is actor</p>
+    <p *ngIf="!director.isActor" class="list-group-item-text">isn't actor</p>
   </div>
 </a>
