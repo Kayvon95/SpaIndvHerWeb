@@ -15,6 +15,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { MovieListComponent } from './movies/movie-list/movie-list.component';
 import {MovieService} from './movies/movie.service';
 import { MovieItemComponent } from './movies/movie-item/movie-item.component';
+import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -30,8 +31,9 @@ import { MovieItemComponent } from './movies/movie-item/movie-item.component';
     MovieItemComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    AppRoutingModule
+    HttpModule
   ],
   providers: [DirectorService, MovieService],
   bootstrap: [AppComponent]
