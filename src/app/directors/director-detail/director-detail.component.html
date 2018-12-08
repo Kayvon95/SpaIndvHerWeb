@@ -1,3 +1,19 @@
 <p>
   director-detail works!
 </p>
+<div class="container">
+    <h4>
+      Director <span class="text-success">{{director.firstName}} {{director.lastName}}</span>
+    </h4>
+    <h5>Your information: </h5>
+    <table>
+      <tr>
+        <td>Born in: </td>
+        <td>{{director.yearOfBirth}}</td>
+      </tr>
+    </table>
+    <a routerLink="/directors/{{director._id}}/edit"
+       class="btn btn-warning float-right">
+      Edit
+    </a>
+</div>

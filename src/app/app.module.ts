@@ -16,24 +16,29 @@ import { MovieListComponent } from './movies/movie-list/movie-list.component';
 import {MovieService} from './movies/movie.service';
 import { MovieItemComponent } from './movies/movie-item/movie-item.component';
 import {HttpModule} from '@angular/http';
+import { DirectorEditComponent } from './directors/director-edit/director-edit.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
+    ActorsComponent,
     AppComponent,
     HeaderComponent,
     DirectorsComponent,
-    DirectorListComponent,
-    DirectorItemComponent,
-    MoviesComponent,
-    ActorsComponent,
     DirectorDetailComponent,
-    MovieListComponent,
-    MovieItemComponent
+    DirectorEditComponent,
+    DirectorItemComponent,
+    DirectorListComponent,
+    MoviesComponent,
+    MovieItemComponent,
+    MovieListComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
-    HttpModule
+    FormsModule,
+    HttpModule,
+    ReactiveFormsModule
   ],
   providers: [DirectorService, MovieService],
   bootstrap: [AppComponent]

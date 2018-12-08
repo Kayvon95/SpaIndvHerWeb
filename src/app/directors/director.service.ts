@@ -6,18 +6,11 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class DirectorService {
+  directorChanged = new Subject<Director[]>();
   private headers = new Headers({'Content-Type': 'application/json'});
   private serverUrl = environment.serverUrl + 'directors';
   private directors: Director[] = [];
 
-  // private directors: Director[] = [
-  //   new Director( 'Tommy', 'Wiseau', true),
-  //   new Director('Christopher', 'Nolan', false)
-  // ];
-
-  // getDirectors() {
-  //   return this.directors.slice();
-  // }
   constructor (private http: Http) {
   }
 
@@ -34,5 +27,35 @@ export class DirectorService {
         console.log('handleError');
         return Promise.reject(error.message || error);
       });
+  }
+
+  getDirector(id: string): Promise<Director> {
+    return this.http.get(this.serverUrl + '/' + id, {headers: this.headers})
+      .toPromise()
+      .then(response => {
+        return response.json() as Director;
+      })
+      .catch(error => {
+        console.log('handleError');
+        return Promise.reject(error.message || error);
+      });
+  }
+
+  public saveDirector(director: Director) {
+    return this.http.post(
+      this.serverUrl, director, { headers: this.headers }
+    );
+  }
+
+  public editDirector(id: string, director: Director ) {
+    return this.http.put(
+      this.serverUrl + '/' + id, director, { headers: this.headers}
+      );
+  }
+
+  public deleteDirector(id: string) {
+    return this.http.delete(
+      this.serverUrl + '/' + id, {headers: this.headers}
+      );
   }
 }

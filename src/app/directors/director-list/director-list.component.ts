@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Director } from '../director.model';
 import { DirectorService} from '../director.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -10,7 +10,7 @@ import {Subscription} from 'rxjs/Subscription';
   styleUrls: ['./director-list.component.css']
 })
 
-export class DirectorListComponent implements OnInit {
+export class DirectorListComponent implements OnInit, OnDestroy {
   directors: Director[];
   subscription: Subscription;
 
@@ -19,14 +19,20 @@ export class DirectorListComponent implements OnInit {
               private directorService: DirectorService) { }
 
   ngOnInit() {
+    this.subscription = this.directorService.directorChanged
+      .subscribe(
+        (directors: Director[]) => {
+          this.directors = directors;
+        }
+      );
     this.directorService.getAll()
       .then(directors => {
         this.directors = directors;
       })
       .catch( error => console.log(error));
   }
-  // ngOnInit() {
-  //   this.directors = this.directorService.getDirectors();
-  // }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

@@ -2,8 +2,12 @@
    class = "list-group-item clearfix">
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{ director.firstName}} {{ director.lastName }}</h4>
-    <p class="list-group-item-text">{{ director.isActor}}</p>
+    <p class="list-group-item-text">{{ director.countryOfOrigin}}</p>
     <p *ngIf="director.isActor" class="list-group-item-text">is actor</p>
     <p *ngIf="!director.isActor" class="list-group-item-text">isn't actor</p>
+    <a routerLink="/directors/{{director._id}}"
+       class="btn btn-info float-right">
+      Info
+    </a>
   </div>
 </a>
