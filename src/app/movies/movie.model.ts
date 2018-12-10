@@ -1,10 +1,11 @@
 export class Movie {
   constructor(
-  public title: string,
-  public subtitle: string,
-  public minutes: number,
-  public genre: string,
-  public yearOfRelease: number,
+    public _id: string,
+    public title: string,
+    public subtitle: string,
+    public minutes: number,
+    public genre: string,
+    public yearOfRelease: number,
   ) {}
   // constructor(title: string, subtitle: string, minutes: number, genre: string, yearOfRelease: number) {
   //   this.title = title;

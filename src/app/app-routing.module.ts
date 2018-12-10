@@ -6,6 +6,7 @@ import {DirectorDetailComponent} from './directors/director-detail/director-deta
 import {DirectorListComponent} from './directors/director-list/director-list.component';
 import {MovieListComponent} from './movies/movie-list/movie-list.component';
 import {DirectorEditComponent} from './directors/director-edit/director-edit.component';
+import {MovieDetailComponent} from './movies/movie-detail/movie-detail.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/directors/list', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
   { path: 'movies', component: MoviesComponent, children: [
     { path: '', redirectTo: '/list', pathMatch: 'full'},
     { path: 'list', component: MovieListComponent },
+    { path: ':id', component: MovieDetailComponent},
   ] }
 ];
 

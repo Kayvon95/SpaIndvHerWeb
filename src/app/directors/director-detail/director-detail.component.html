@@ -1,6 +1,3 @@
-<p>
-  director-detail works!
-</p>
 <div class="container">
     <h4>
       Director <span class="text-success">{{director.firstName}} {{director.lastName}}</span>
@@ -9,7 +6,7 @@
     <table>
       <tr>
         <td>Born in: </td>
-        <td>{{director.yearOfBirth}}</td>
+        <td>{{director.yearOfBirth}}, {{director.countryOfOrigin}}</td>
       </tr>
     </table>
     <a routerLink="/directors/{{director._id}}/edit"

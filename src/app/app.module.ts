@@ -18,6 +18,7 @@ import { MovieItemComponent } from './movies/movie-item/movie-item.component';
 import {HttpModule} from '@angular/http';
 import { DirectorEditComponent } from './directors/director-edit/director-edit.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +26,14 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     AppComponent,
     HeaderComponent,
     DirectorsComponent,
-    DirectorDetailComponent,
     DirectorEditComponent,
+    DirectorDetailComponent,
     DirectorItemComponent,
     DirectorListComponent,
     MoviesComponent,
     MovieItemComponent,
-    MovieListComponent
+    MovieListComponent,
+    MovieDetailComponent
   ],
   imports: [
     AppRoutingModule,
