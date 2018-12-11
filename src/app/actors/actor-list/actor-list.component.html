@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-xs-12">
+    <a routerLink="/actors/create"
+       class="btn btn-success"
+    >Add Actor</a>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-actor-item
+      *ngFor="let actorElement of actors; let i = index"
+      [actor]="actorElement"
+      [index]=i
+    >
+    </app-actor-item>
+  </div>
+</div>

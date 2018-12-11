@@ -1,5 +1,5 @@
 <h3 *ngIf="editMode">
-  Editing {{firstName}} {{lastName}}
+  Editing {{director?.firstName}} {{director?.lastName}}
 </h3>
 <h3 *ngIf="!editMode">
   Creating new director
@@ -10,7 +10,7 @@
     <div>
       <form (ngSubmit)="onSaveDirector()" [formGroup]="directorForm">
         <div id="director-data">
-          <div class="formGroup">
+          <div class="form-group">
             <label for="firstName">First name</label>
             <input type = text
                    id = "firstName"
@@ -18,7 +18,7 @@
                    formControlName="firstName"
                    required>
           </div>
-          <div class="formgroup">
+          <div class="form-group">
             <label for="lastName">Last name</label>
             <input type = text
                    id = "lastName"
@@ -26,7 +26,7 @@
                    formControlName="lastName"
                    required>
           </div>
-          <div class="formgroup">
+          <div class="form-group">
             <label for="yearOfBirth">Year of birth</label>
             <input type = "text"
                    id = "yearOfBirth"

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ActorService} from './actor.service';
 
 @Component({
   selector: 'app-actors',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActorsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              private actorService: ActorService) { }
 
   ngOnInit() {
   }

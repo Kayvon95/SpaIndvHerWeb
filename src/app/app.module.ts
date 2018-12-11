@@ -19,6 +19,10 @@ import {HttpModule} from '@angular/http';
 import { DirectorEditComponent } from './directors/director-edit/director-edit.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
+import {ActorService} from './actors/actor.service';
+import { ActorListComponent } from './actors/actor-list/actor-list.component';
+import { ActorItemComponent } from './actors/actor-item/actor-item.component';
+import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,10 @@ import { MovieDetailComponent } from './movies/movie-detail/movie-detail.compone
     MoviesComponent,
     MovieItemComponent,
     MovieListComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    ActorListComponent,
+    ActorItemComponent,
+    MovieEditComponent
   ],
   imports: [
     AppRoutingModule,
@@ -42,7 +49,7 @@ import { MovieDetailComponent } from './movies/movie-detail/movie-detail.compone
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [DirectorService, MovieService],
+  providers: [ActorService, DirectorService, MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

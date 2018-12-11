@@ -1,0 +1,14 @@
+<a style="cursor: pointer"
+   class = "list-group-item clearfix">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ actor.firstName}} {{ actor.lastName }}</h4>
+    <p class="list-group-item-text">{{ actor.countryOfOrigin}}</p>
+    <p *ngIf="actor.isDirector" class="list-group-item-text">is director</p>
+    <p *ngIf="!actor.isDirector" class="list-group-item-text">isn't director</p>
+    <br>
+    <a routerLink="/actor/{{actor._id}}"
+       class="btn btn-info float-right">
+      Info
+    </a>
+  </div>
+</a>

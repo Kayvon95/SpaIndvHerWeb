@@ -39,4 +39,22 @@ export class MovieService {
         return Promise.reject( error.message = error );
       });
   }
+
+  public saveMovie(movie: Movie) {
+    return this.http.post(
+      this.serverUrl, movie, { headers: this.headers }
+    );
+  }
+
+  public editMovie(id: string, movie: Movie) {
+    return this.http.put(
+      this.serverUrl + '/' + id, movie, { headers: this.headers}
+    );
+  }
+
+  public deleteMovie(id: string) {
+    return this.http.delete(
+      this.serverUrl + '/' + id, {headers: this.headers}
+    );
+  }
 }

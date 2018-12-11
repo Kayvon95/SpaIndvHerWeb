@@ -33,7 +33,7 @@ export class DirectorService {
     return this.http.get(this.serverUrl + '/' + id, {headers: this.headers})
       .toPromise()
       .then(response => {
-        return response.json() as Director;
+         return response.json() as Director;
       })
       .catch(error => {
         console.log('handleError');

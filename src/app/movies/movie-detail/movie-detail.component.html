@@ -1,3 +1,17 @@
-<p>
-  movie-detail works!
-</p>
+<div class="container">
+  <h4>
+    <span class="text-success">{{movie?.title}} {{movie?.subtitle}}</span>
+  </h4>
+  <h5>Information: </h5>
+  <table>
+    <tr>
+      <td> Released in </td>
+      <td> {{ movie?.yearOfRelease }}</td>
+    </tr>
+
+  </table>
+  <a routerLink="/movies/{{movie?._id}}/edit"
+     class="btn btn-warning float-right">
+    Info
+  </a>
+</div>

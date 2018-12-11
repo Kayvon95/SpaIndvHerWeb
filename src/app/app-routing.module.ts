@@ -7,6 +7,9 @@ import {DirectorListComponent} from './directors/director-list/director-list.com
 import {MovieListComponent} from './movies/movie-list/movie-list.component';
 import {DirectorEditComponent} from './directors/director-edit/director-edit.component';
 import {MovieDetailComponent} from './movies/movie-detail/movie-detail.component';
+import {ActorsComponent} from './actors/actors.component';
+import {ActorListComponent} from './actors/actor-list/actor-list.component';
+import {MovieEditComponent} from './movies/movie-edit/movie-edit.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/directors/list', pathMatch: 'full' },
@@ -19,10 +22,16 @@ const appRoutes: Routes = [
   ] },
   // { path: 'movies', component: MoviesComponent}
   { path: 'movies', component: MoviesComponent, children: [
-    { path: '', redirectTo: '/list', pathMatch: 'full'},
+    { path: '', redirectTo: 'list', pathMatch: 'full'},
     { path: 'list', component: MovieListComponent },
+    { path: 'create', component: MovieEditComponent},
+    { path: ':id/edit', component: MovieEditComponent},
     { path: ':id', component: MovieDetailComponent},
-  ] }
+  ] },
+  { path: 'actors', component: ActorsComponent, children: [
+    { path: '', redirectTo: '/list', pathMatch: 'full'},
+    { path: 'list', component: ActorListComponent },
+  ]}
 ];
 
 @NgModule({
