@@ -10,6 +10,8 @@ import {MovieDetailComponent} from './movies/movie-detail/movie-detail.component
 import {ActorsComponent} from './actors/actors.component';
 import {ActorListComponent} from './actors/actor-list/actor-list.component';
 import {MovieEditComponent} from './movies/movie-edit/movie-edit.component';
+import {ActorDetailComponent} from './actors/actor-detail/actor-detail.component';
+import {ActorEditComponent} from './actors/actor-edit/actor-edit.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/directors/list', pathMatch: 'full' },
@@ -31,6 +33,9 @@ const appRoutes: Routes = [
   { path: 'actors', component: ActorsComponent, children: [
     { path: '', redirectTo: '/list', pathMatch: 'full'},
     { path: 'list', component: ActorListComponent },
+    { path: 'create', component: ActorEditComponent},
+    { path: ':id/edit', component: ActorEditComponent},
+    { path: ':id', component: ActorDetailComponent}
   ]}
 ];
 

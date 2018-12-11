@@ -1,0 +1,26 @@
+<p>
+  actor-detail works!
+</p>
+<div class="container">
+  <div class="col-md-6">
+    <h4>
+      Actor <span class="text-success">{{actor?.firstName}} {{actor?.lastName}}</span>
+    </h4>
+    <img [src]="actor?.imageUrl"
+         alt="{{ actor?.firstName }} {{actor?.lastName}} logo"
+         class="img-responsive"
+         style="max-height: 150px">
+    <h5>Basic information: </h5>
+    <table>
+      <tr>
+        <td>Born in: </td>
+        <td>{{actor?.yearOfBirth}}, {{actor?.countryOfOrigin}}</td>
+      </tr>
+    </table>
+    <a routerLink="/actors/{{actor?._id}}/edit"
+       class="btn btn-warning float-right">
+      Edit
+    </a>
+  </div>
+
+</div>

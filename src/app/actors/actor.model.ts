@@ -5,6 +5,7 @@ export class Actor {
     public lastName: string,
     public yearOfBirth: number,
     public countryOfOrigin: string,
-    public isDirector: boolean) {
+    public isDirector: boolean,
+    public imageUrl: string) {
   }
 }

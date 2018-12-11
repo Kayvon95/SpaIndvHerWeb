@@ -23,6 +23,8 @@ import {ActorService} from './actors/actor.service';
 import { ActorListComponent } from './actors/actor-list/actor-list.component';
 import { ActorItemComponent } from './actors/actor-item/actor-item.component';
 import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
+import { ActorDetailComponent } from './actors/actor-detail/actor-detail.component';
+import { ActorEditComponent } from './actors/actor-edit/actor-edit.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
     MovieDetailComponent,
     ActorListComponent,
     ActorItemComponent,
-    MovieEditComponent
+    MovieEditComponent,
+    ActorDetailComponent,
+    ActorEditComponent
   ],
   imports: [
     AppRoutingModule,

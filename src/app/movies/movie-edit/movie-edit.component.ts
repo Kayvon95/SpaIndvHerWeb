@@ -82,9 +82,3 @@ export class MovieEditComponent implements OnInit {
     this.router.navigate(['/movies/' + this.id]);
   }
 }
-
-// USE:
-// Assault: Pistol kills
-// Medic: Cei Regotti Trench
-// Support: Bar Trench
-// Scout: Ross MkIII markasman

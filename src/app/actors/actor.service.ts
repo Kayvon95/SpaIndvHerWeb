@@ -27,4 +27,34 @@ export class ActorService {
         return Promise.reject(error.message || error);
       });
   }
+
+  getActor(id: string): Promise<Actor> {
+    return  this.http.get(this.serverUrl + '/' + id, { headers: this.headers})
+      .toPromise()
+      .then(response => {
+        return response.json() as Actor;
+      })
+      .catch(error => {
+        console.log('handleError');
+        return Promise.reject(error.message || error);
+      });
+  }
+
+  public saveActor(actor: Actor) {
+    return this.http.post(
+      this.serverUrl, actor, { headers: this.headers }
+    );
+  }
+
+  public editActor(id: string, actor: Actor) {
+    return this.http.put(
+      this.serverUrl + '/' + id, actor, { headers: this.headers}
+    );
+  }
+
+  public deleteActor(id: string) {
+    return this.http.delete(
+      this.serverUrl + '/' + id, {headers: this.headers}
+    );
+  }
 }
