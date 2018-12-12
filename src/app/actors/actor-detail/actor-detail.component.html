@@ -17,10 +17,13 @@
         <td>{{actor?.yearOfBirth}}, {{actor?.countryOfOrigin}}</td>
       </tr>
     </table>
+    <a routerLink="/actors/"
+       class="btn btn-info float-right">
+      Back
+    </a>
     <a routerLink="/actors/{{actor?._id}}/edit"
        class="btn btn-warning float-right">
       Edit
     </a>
   </div>
-
 </div>

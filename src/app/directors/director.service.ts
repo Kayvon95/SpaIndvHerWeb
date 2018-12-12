@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 import {Injectable} from '@angular/core';
 import { Http, Headers} from '@angular/http';
 import { Subject } from 'rxjs/Subject';
+import {Movie} from '../movies/movie.model';
 
 @Injectable()
 export class DirectorService {
@@ -57,5 +58,17 @@ export class DirectorService {
     return this.http.delete(
       this.serverUrl + '/' + id, {headers: this.headers}
       );
+  }
+
+  public addMovieToDirector( id: string, movie: Movie) {
+    console.log( this.serverUrl + '/' + id + '/movie');
+    return this.http.put(
+      this.serverUrl + '/' + id + '/movie', movie, {headers: this.headers});
+  }
+
+  public removeMovieFromDirector( directorId: string, movieId: string) {
+    console.log( this.serverUrl + '/' + directorId + '/movie/' + movieId);
+    return this.http.put(
+      this.serverUrl + '/' + directorId + '/movie/' + movieId, {headers: this.headers});
   }
 }

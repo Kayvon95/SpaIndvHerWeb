@@ -20,14 +20,16 @@ const appRoutes: Routes = [
     { path: 'list', component: DirectorListComponent },
     { path: 'create', component: DirectorEditComponent},
     { path: ':id/edit', component: DirectorEditComponent},
+    { path: ':directorid/movie/:id', component: MovieEditComponent},
+    { path: ':directorid/add-movie', component: MovieEditComponent},
     { path: ':id', component: DirectorDetailComponent},
   ] },
-  // { path: 'movies', component: MoviesComponent}
   { path: 'movies', component: MoviesComponent, children: [
     { path: '', redirectTo: 'list', pathMatch: 'full'},
     { path: 'list', component: MovieListComponent },
     { path: 'create', component: MovieEditComponent},
     { path: ':id/edit', component: MovieEditComponent},
+    { path: ':movieId/add-actor', component: ActorEditComponent},
     { path: ':id', component: MovieDetailComponent},
   ] },
   { path: 'actors', component: ActorsComponent, children: [

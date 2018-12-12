@@ -1,4 +1,4 @@
-<h3 *ngIf="!editMode">
+<h3 *ngIf="!editMode && !addToDirector">
   Creating new movie
 </h3>
 <div class="container">
@@ -43,6 +43,14 @@
                  id = "yearOfRelease"
                  class="form-control"
                  formControlName="yearOfRelease"
+                 required>
+        </div>
+        <div class="formGroup">
+          <label for="imageUrl">Image link</label>
+          <input type = text
+                 id = "imageUrl"
+                 class="form-control"
+                 formControlName="imageUrl"
                  required>
         </div>
       </div>

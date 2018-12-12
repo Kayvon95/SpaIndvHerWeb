@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Http, Headers} from '@angular/http';
 import { Subject } from 'rxjs/Subject';
+import {Actor} from '../actors/actor.model';
 
 @Injectable()
 export class MovieService {
@@ -56,5 +57,12 @@ export class MovieService {
     return this.http.delete(
       this.serverUrl + '/' + id, {headers: this.headers}
     );
+  }
+
+  public addActorToMovie( id: string, actor: Actor) {
+    console.log('MovieID to server: ' + id);
+    console.log( 'API CALL: ' + this.serverUrl + '/' + id + '/actor');
+    return this.http.put(
+      this.serverUrl + '/' + id + '/actor', actor, { headers: this.headers});
   }
 }

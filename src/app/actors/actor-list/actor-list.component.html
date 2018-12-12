@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-xs-12">
     <a routerLink="/actors/create"
        class="btn btn-success"
     >Add Actor</a>
@@ -7,7 +7,7 @@
 </div>
 <hr>
 <div class="row">
-  <div class="col-md-5">
+  <div class="col-xs-12">
     <app-actor-item
       *ngFor="let actorElement of actors; let i = index"
       [actor]="actorElement"

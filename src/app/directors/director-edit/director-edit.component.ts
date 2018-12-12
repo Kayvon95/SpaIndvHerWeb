@@ -39,6 +39,7 @@ export class DirectorEditComponent implements OnInit {
       'yearOfBirth': new FormControl,
       'countryOfOrigin': new FormControl,
       'isActor': new FormControl,
+      'imageUrl': new FormControl
     });
 
     if (this.editMode) {
@@ -49,7 +50,8 @@ export class DirectorEditComponent implements OnInit {
             lastName: director.lastName,
             yearOfBirth: director.yearOfBirth,
             countryOfOrigin: director.countryOfOrigin,
-            isActor: director.isActor});
+            isActor: director.isActor,
+            imageUrl: director.imageUrl});
           })
         .catch(error => console.log(error));
     }

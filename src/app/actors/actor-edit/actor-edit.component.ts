@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {ActorService} from '../actor.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
+import {ActorService} from '../actor.service';
+import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
+import {MovieService} from '../../movies/movie.service';
 
 @Component({
   selector: 'app-actor-edit',
@@ -11,12 +12,14 @@ import {FormControl, FormGroup} from '@angular/forms';
 export class ActorEditComponent implements OnInit {
   actorForm: FormGroup;
   editMode = false;
+  addToMovie = false;
   id = '';
-
+  movieId = '';
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private actorService: ActorService) { }
+              private actorService: ActorService,
+              private movieService: MovieService) { }
 
   ngOnInit(): void {
     this.route.params
@@ -24,6 +27,10 @@ export class ActorEditComponent implements OnInit {
         (params: Params) => {
           this.id = params['id'];
           this.editMode = params['id'] != null;
+          this.movieId = params['movieId'];
+          console.log('MovieID = ' + this.movieId );
+          this.addToMovie = params['movieId'] != null;
+          console.log('BOOL: addToMovie is ' + this.addToMovie);
           this.initForm();
         }
       );
@@ -51,6 +58,8 @@ export class ActorEditComponent implements OnInit {
             imageUrl: actor.imageUrl});
         })
         .catch(error => console.log(error));
+    } else if (this.addToMovie) {
+      console.log('FORM: Adding actor to movie');
     }
   }
 
@@ -59,6 +68,16 @@ export class ActorEditComponent implements OnInit {
       this.actorService.editActor(this.id, this.actorForm.value)
         .subscribe(
           (response) => this.router.navigate(['/actors/' + this.id]),
+          (error) => console.log(error)
+        );
+    } else if (this.addToMovie) {
+      console.log('Adding actor to movie ' + this.movieId);
+      console.log('MovieID: ' + this.movieId);
+      const stringId = this.movieId.toString();
+      console.log('MovieID to String: ' + stringId)
+      this.movieService.addActorToMovie(stringId, this.actorForm.value)
+        .subscribe(
+          (response) => this.router.navigate(['/movies/' + this.movieId]),
           (error) => console.log(error)
         );
     } else {

@@ -1,3 +1,4 @@
+import {Actor} from '../actors/actor.model';
 export class Movie {
   constructor(
     public _id: string,
@@ -6,12 +7,7 @@ export class Movie {
     public minutes: number,
     public genre: string,
     public yearOfRelease: number,
+    public actors: Actor[],
+    public imageUrl: string
   ) {}
-  // constructor(title: string, subtitle: string, minutes: number, genre: string, yearOfRelease: number) {
-  //   this.title = title;
-  //   this.subtitle = subtitle;
-  //   this.minutes = minutes;
-  //   this.genre = genre;
-  //   this.yearOfRelease = yearOfRelease;
-  // }
 }
