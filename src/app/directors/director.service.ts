@@ -59,6 +59,12 @@ export class DirectorService {
       );
   }
 
+  public editDirectorNeo(lastName: string, director: Director) {
+    return this.http.put(
+      this.serverUrl + '/' + lastName + '/neo', director, { headers: this.headers}
+    );
+  }
+
   public deleteDirector(id: string) {
     return this.http.delete(
       this.serverUrl + '/' + id, {headers: this.headers}
@@ -67,7 +73,7 @@ export class DirectorService {
   public deleteDirectorNeo(director: Director) {
     console.log('@deleteDirectorNeo: ' + this.serverUrl + '/' + director.firstName + '/' + director.lastName + '/neo');
     return this.http.delete(
-      this.serverUrl + '/' + director.firstName + '/' + director.lastName + '/neo', {headers: this.headers}
+      this.serverUrl +  '/' + director.lastName + '/neo', {headers: this.headers}
     );
   }
 

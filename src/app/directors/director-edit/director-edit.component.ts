@@ -14,6 +14,7 @@ export class DirectorEditComponent implements OnInit {
   editMode = false;
   id = '';
   editedDirector = Director;
+  lastName: string;
 
   constructor(
     private router: Router,
@@ -45,6 +46,7 @@ export class DirectorEditComponent implements OnInit {
     if (this.editMode) {
       this.directorService.getDirector(this.id)
         .then((director) => {
+          this.lastName = director.lastName;
           this.directorForm.setValue({
             firstName: director.firstName,
             lastName: director.lastName,
@@ -64,6 +66,12 @@ export class DirectorEditComponent implements OnInit {
           (response) => this.router.navigate(['/']),
           (error) => console.log(error)
         );
+      this.directorService.editDirectorNeo(this.lastName, this.directorForm.value)
+        .subscribe(
+          (response) => console.log(response),
+          (error) => console.log(error)
+        );
+      console.log('Submitting edited director ' + this.lastName);
     } else {
       this.directorService.saveDirector(this.directorForm.value)
         .subscribe(
