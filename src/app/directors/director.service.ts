@@ -47,6 +47,11 @@ export class DirectorService {
       this.serverUrl, director, { headers: this.headers }
     );
   }
+  public saveDirectorNeo(director: Director) {
+    return this.http.post(
+      this.serverUrl + '/neo  ', director, { headers: this.headers }
+    );
+  }
 
   public editDirector(id: string, director: Director ) {
     return this.http.put(

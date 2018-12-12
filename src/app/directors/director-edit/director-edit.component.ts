@@ -70,6 +70,13 @@ export class DirectorEditComponent implements OnInit {
           (response) => this.router.navigate(['/']),
           (error) => console.log(error)
         );
+      console.log('Submitted director to MongoDb');
+      this.directorService.saveDirectorNeo(this.directorForm.value)
+        .subscribe(
+          (response) => this.router.navigate(['/']),
+          (error) => console.log(error)
+        );
+      console.log('Submitted director to Neo4j');
     }
   }
 
