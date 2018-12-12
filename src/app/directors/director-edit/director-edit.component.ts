@@ -86,6 +86,11 @@ export class DirectorEditComponent implements OnInit {
         (response) => this.router.navigate(['/']),
         (error) => console.log(error)
       );
+    this.directorService.deleteDirectorNeo(this.directorForm.value)
+      .subscribe(
+        (response) => this.router.navigate(['/']),
+        (error) => console.log(error)
+      );
   }
 
   onCancel() {

@@ -47,6 +47,12 @@ export class MovieService {
     );
   }
 
+  public saveMovieNeo(movie: Movie) {
+    return this.http.post(
+      this.serverUrl + '/neo', movie, { headers: this.headers }
+    );
+  }
+
   public editMovie(id: string, movie: Movie) {
     return this.http.put(
       this.serverUrl + '/' + id, movie, { headers: this.headers}

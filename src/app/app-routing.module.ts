@@ -33,7 +33,7 @@ const appRoutes: Routes = [
     { path: ':id', component: MovieDetailComponent},
   ] },
   { path: 'actors', component: ActorsComponent, children: [
-    { path: '', redirectTo: '/list', pathMatch: 'full'},
+    { path: '', redirectTo: 'list', pathMatch: 'full'},
     { path: 'list', component: ActorListComponent },
     { path: 'create', component: ActorEditComponent},
     { path: ':id/edit', component: ActorEditComponent},

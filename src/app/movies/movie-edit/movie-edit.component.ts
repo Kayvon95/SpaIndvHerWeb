@@ -93,15 +93,21 @@ export class MovieEditComponent implements OnInit {
           (response) => this.router.navigate(['/movies']),
           (error) => console.log(error)
         );
+      this.movieService.saveMovieNeo(this.movieForm.value)
+        .subscribe(
+          (response) => console.log(response),
+          (error) => console.log(error)
+        );
     }
   }
 
   onDeleteMovie() {
     this.movieService.deleteMovie(this.id)
       .subscribe(
-        (response) => this.router.navigate(['/movies/list/']),
+        (response) => console.log(response),
         (error) => console.log(error)
       );
+    this.router.navigate(['/movies']);
   }
 
   onCancel() {

@@ -92,9 +92,10 @@ export class ActorEditComponent implements OnInit {
   onDeleteActor() {
     this.actorService.deleteActor(this.id)
       .subscribe(
-        (response) => this.router.navigate(['/']),
+        (response) => console.log(response),
         (error) => console.log(error)
       );
+    this.router.navigate(['/actors']);
   }
 
   onCancel() {

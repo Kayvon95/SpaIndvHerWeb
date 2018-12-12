@@ -64,6 +64,12 @@ export class DirectorService {
       this.serverUrl + '/' + id, {headers: this.headers}
       );
   }
+  public deleteDirectorNeo(director: Director) {
+    console.log('@deleteDirectorNeo: ' + this.serverUrl + '/' + director.firstName + '/' + director.lastName + '/neo');
+    return this.http.delete(
+      this.serverUrl + '/' + director.firstName + '/' + director.lastName + '/neo', {headers: this.headers}
+    );
+  }
 
   public addMovieToDirector( id: string, movie: Movie) {
     console.log( this.serverUrl + '/' + id + '/movie');

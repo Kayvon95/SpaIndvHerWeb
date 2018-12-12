@@ -12,12 +12,11 @@
     <div class="col-1">
 
     </div>
-    <div class="col-6">
+    <div class="col-7">
       <h4 class="list-group-item-heading">{{ director.firstName}} {{ director.lastName }}</h4>
       <p class="list-group-item-text">{{ director.countryOfOrigin}}</p>
-      <p *ngIf="director.isActor" class="list-group-item-text">is actor</p>
-      <p *ngIf="!director.isActor" class="list-group-item-text">isn't actor</p>
-      <br>
+      <p *ngIf="director.isActor" class="list-group-item-text">Acts in movies.</p>
+      <p *ngIf="!director.isActor" class="list-group-item-text">Doesn't act.</p>
       <a routerLink="/directors/{{director._id}}"
          class="btn btn-info float-right">
         Info
