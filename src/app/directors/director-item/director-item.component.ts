@@ -14,5 +14,5 @@ export class DirectorItemComponent implements OnInit {
 
   ngOnInit() {
   }
-x
+
 }

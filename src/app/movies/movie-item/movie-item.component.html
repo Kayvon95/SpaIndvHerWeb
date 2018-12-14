@@ -1,0 +1,25 @@
+<a style="cursor: pointer"
+   class = "list-group-item clearfix">
+  <div class="row container container-fluid">
+    <div class="col-4">
+      <span class="pull-left">
+        <img [src]="movie?.imageUrl"
+             alt="{{ movie?.title}} {{movie?.subtitle}}"
+             class="img-responsive"
+             style="max-height: 150px">
+        </span>
+    </div>
+    <div class="col-1">
+
+    </div>
+    <div class="col-6">
+      <h4 class="list-group-item-heading">{{ movie.title}}</h4>
+      <h5 class="list-group-item-text">{{ movie.subtitle }}</h5>
+      <p class="list-group-item-text">{{ movie.yearOfRelease}}</p>
+      <a routerLink="/movies/{{movie._id}}"
+         class="btn btn-info float-right" >
+        Info
+      </a>
+    </div>
+  </div>
+</a>

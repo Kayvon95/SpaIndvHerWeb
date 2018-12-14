@@ -1,0 +1,65 @@
+<h3 *ngIf="!editMode && !addToDirector">
+  Creating new movie
+</h3>
+<div class="container">
+  <div class="row">
+    <form (ngSubmit)="onSaveMovie()" [formGroup]="movieForm">
+      <div id="movieData">
+        <div class="formGroup">
+          <label for="title">Title</label>
+          <input type = text
+                 id = "title"
+                 class="form-control"
+                 formControlName="title"
+                 required>
+        </div>
+        <div class="formGroup">
+          <label for="subtitle">Subtitle</label>
+          <input type = text
+                 id = "subtitle"
+                 class="form-control"
+                 formControlName="subtitle"
+                 required>
+        </div>
+        <div class="formGroup">
+          <label for="minutes">Duration (in minutes)</label>
+          <input type = number
+                 id = "minutes"
+                 class="form-control"
+                 formControlName="minutes"
+                 required>
+        </div>
+        <div class="formGroup">
+          <label for="genre">Genre</label>
+          <input type = text
+                 id = "genre"
+                 class="form-control"
+                 formControlName="genre"
+                 required>
+        </div>
+        <div class="formGroup">
+          <label for="yearOfRelease">Year of release</label>
+          <input type = number
+                 id = "yearOfRelease"
+                 class="form-control"
+                 formControlName="yearOfRelease"
+                 required>
+        </div>
+        <div class="formGroup">
+          <label for="imageUrl">Image link</label>
+          <input type = text
+                 id = "imageUrl"
+                 class="form-control"
+                 formControlName="imageUrl"
+                 required>
+        </div>
+      </div>
+      <hr>
+      <div class="mx-auto">
+        <button class="btn btn-primary" type="submit">Submit</button>
+        <button type="button" class="btn btn-warning" (click)="onCancel()">Cancel</button>
+        <button class="btn btn-danger" (click)="onDeleteMovie()">Delete</button>
+      </div>
+    </form>
+  </div>
+</div>

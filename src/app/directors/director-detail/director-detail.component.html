@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="col-10">
+    <div class="row">
+      <div class="col-6">
+        <h4>
+          Director <span class="text-success">{{director?.firstName}} {{director?.lastName}}</span>
+        </h4>
+      </div>
+      <a routerLink="/directors/"
+         class="btn btn-info float-right">
+        Back
+      </a>
+      <a routerLink="/directors/{{director?._id}}/edit"
+         class="btn btn-warning float-right">
+        Edit
+      </a>
+    </div>
+    <img [src]="director?.imageUrl"
+         alt="{{ director?.firstName }} {{director?.lastName}} logo"
+         class="img-responsive"
+         style="max-height: 150px">
+    <h5>Basic information: </h5>
+    <table>
+      <tr>
+        <td>Born in: </td>
+        <td>{{director?.yearOfBirth}}, {{director?.countryOfOrigin}}</td>
+      </tr>
+      <tr>
+        <td>Registered movies:</td>
+        <td> {{director?.movies?.length}}</td>
+      </tr>
+    </table>
+  </div>
+  <br>
+  <div class="col-10">
+    <div class="row">
+      <div class="col-6">
+        <h4>Movies</h4>
+      </div>
+      <div class="float-right">
+        <a routerLink="/directors/{{director?._id}}/add-movie"
+           class="btn btn-info pull-right">Add movie</a>
+      </div>
+    </div>
+    <div class="col-7" *ngIf="director?.movies?.length > 0">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <app-movie-item *ngFor="let movie of director.movies" [movie]="movie" [director]="director"></app-movie-item>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

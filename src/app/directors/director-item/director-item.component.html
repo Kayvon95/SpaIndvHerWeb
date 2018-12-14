@@ -1,7 +1,26 @@
 <a style="cursor: pointer"
    class = "list-group-item clearfix">
-  <div class="pull-left">
-    <h4 class="list-group-item-heading">{{ director.firstName}} {{ director.lastName }}</h4>
-    <p class="list-group-item-text">{{ director.isActor}}</p>
+  <div class="row container container-fluid">
+    <div class="col-4">
+      <span class="pull-left">
+        <img [src]="director?.imageUrl"
+             alt="{{ director?.firstName }} {{director?.lastName}} logo"
+             class="img-responsive"
+             style="max-height: 150px">
+        </span>
+    </div>
+    <div class="col-1">
+
+    </div>
+    <div class="col-7">
+      <h4 class="list-group-item-heading">{{ director.firstName}} {{ director.lastName }}</h4>
+      <p class="list-group-item-text">{{ director.countryOfOrigin}}</p>
+      <p *ngIf="director.isActor" class="list-group-item-text">Acts in movies.</p>
+      <p *ngIf="!director.isActor" class="list-group-item-text">Doesn't act.</p>
+      <a routerLink="/directors/{{director._id}}"
+         class="btn btn-info float-right">
+        Info
+      </a>
+    </div>
   </div>
 </a>

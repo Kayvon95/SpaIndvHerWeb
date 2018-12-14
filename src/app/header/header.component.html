@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-expand">
   <div class="container-fluid">
     <div class="navbar-header">
       <a routerLink="/" class="navbar-brand">DirActorDB</a>
@@ -6,9 +6,21 @@
 
     <div class="navbar-default">
       <ul class="nav navbar-nav">
-        <li routerLinkActive="active"><a routerLink="/">Directors</a></li>
-        <!--<li routerLinkActive="active"><a routerLink="/">Movies</a></li>-->
-        <!--<li routerLinkActive="active"><a routerLink="/">Actors</a></li>-->
+        <li class = "nav-item" routerLinkActive="active">
+          <a routerLink="/directors/list" class= "nav-link">
+            Directors
+          </a>
+        </li>
+        <li class = "nav-item" routerLinkActive="active">
+          <a routerLink="/movies/list" class= "nav-link">
+            Movies
+          </a>
+        </li>
+        <li class = "nav-item" routerLinkActive="active">
+          <a routerLink="/actors/list" class= "nav-link">
+            Actors
+          </a>
+        </li>
       </ul>
     </div>
   </div>

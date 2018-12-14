@@ -1,0 +1,77 @@
+<h3 *ngIf="editMode">
+  Editing {{actor?.firstName}} {{actor?.lastName}}
+</h3>
+<h3 *ngIf="!editMode">
+  Creating new actor
+</h3>
+<div class="container">
+  <div class="row">
+    <form (ngSubmit)="onSaveActor()" [formGroup]="actorForm">
+      <div id="actor-data">
+        <div class="form-group">
+          <label for="firstName">First name</label>
+          <input type = text
+                 id = "firstName"
+                 class="form-control"
+                 formControlName="firstName"
+                 required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last name</label>
+          <input type = text
+                 id = "lastName"
+                 class="form-control"
+                 formControlName="lastName"
+                 required>
+        </div>
+        <div class="form-group">
+          <label for="yearOfBirth">Year of birth</label>
+          <input type = "text"
+                 id = "yearOfBirth"
+                 class="form-control"
+                 formControlName="yearOfBirth"
+                 required>
+        </div>
+        <div class="form-group">
+          <label for="countryOfOrigin">Place of birth</label>
+          <input type = "text"
+                 id = "countryOfOrigin"
+                 class="form-control"
+                 formControlName="countryOfOrigin"
+                 required>
+        </div>
+        <div
+          class="radio">
+          <label>
+            <p>Directs movies</p>
+
+            <input
+              type="radio"
+              formControlName="isDirector"
+              [value]="true">
+            Yes
+            <input
+              type="radio"
+              formControlName="isDirector"
+              [value]="false">
+            No
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="imageUrl">Image URL</label>
+          <input type = "text"
+                 id = "imageUrl"
+                 class="form-control"
+                 formControlName="imageUrl"
+                 required>
+        </div>
+      </div>
+      <hr>
+      <div class="mx-auto">
+        <button class="btn btn-primary" type="submit">Submit</button>
+        <button type="button" class="btn btn-warning" (click)="onCancel()">Cancel</button>
+        <button class="btn btn-danger" (click)="onDeleteActor()">Delete</button>
+      </div>
+    </form>
+  </div>
+</div>
