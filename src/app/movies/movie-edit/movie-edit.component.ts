@@ -93,11 +93,11 @@ export class MovieEditComponent implements OnInit {
           (response) => this.router.navigate(['/movies']),
           (error) => console.log(error)
         );
-      this.movieService.saveMovieNeo(this.movieForm.value)
-        .subscribe(
-          (response) => console.log(response),
-          (error) => console.log(error)
-        );
+      // this.movieService.saveMovieNeo(this.movieForm.value)
+      //   .subscribe(
+      //     (response) => console.log(response),
+      //     (error) => console.log(error)
+      //   );
     }
   }
 

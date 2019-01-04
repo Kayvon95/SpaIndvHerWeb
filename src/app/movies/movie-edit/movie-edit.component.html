@@ -3,7 +3,7 @@
 </h3>
 <div class="container">
   <div class="row">
-    <form (ngSubmit)="onSaveMovie()" [formGroup]="movieForm">
+    <form ngNativeValidate (ngSubmit)="onSaveMovie()" [formGroup]="movieForm">
       <div id="movieData">
         <div class="formGroup">
           <label for="title">Title</label>
@@ -11,7 +11,9 @@
                  id = "title"
                  class="form-control"
                  formControlName="title"
-                 required>
+                 required
+                 minlength="2"
+                 maxlength="200">
         </div>
         <div class="formGroup">
           <label for="subtitle">Subtitle</label>
@@ -19,7 +21,8 @@
                  id = "subtitle"
                  class="form-control"
                  formControlName="subtitle"
-                 required>
+                 minlength="2"
+                 maxlength="200">
         </div>
         <div class="formGroup">
           <label for="minutes">Duration (in minutes)</label>
@@ -27,6 +30,8 @@
                  id = "minutes"
                  class="form-control"
                  formControlName="minutes"
+                 min="40"
+                 max="873"
                  required>
         </div>
         <div class="formGroup">
@@ -43,6 +48,8 @@
                  id = "yearOfRelease"
                  class="form-control"
                  formControlName="yearOfRelease"
+                 min="1880"
+                 max="2019"
                  required>
         </div>
         <div class="formGroup">
@@ -51,7 +58,8 @@
                  id = "imageUrl"
                  class="form-control"
                  formControlName="imageUrl"
-                 required>
+                 required
+                 minlength="8">
         </div>
       </div>
       <hr>
