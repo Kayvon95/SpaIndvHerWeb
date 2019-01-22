@@ -12,6 +12,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class ActorListComponent implements OnInit, OnDestroy {
   actors: Actor[];
   subscription: Subscription;
+  actorCount: number;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -27,6 +28,7 @@ export class ActorListComponent implements OnInit, OnDestroy {
     this.actorService.getAll()
       .then(actors => {
         this.actors = actors;
+        this.actorCount = this.actors.length;
       })
       .catch( error => console.log(error));
   }

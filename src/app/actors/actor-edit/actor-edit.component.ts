@@ -46,6 +46,8 @@ export class ActorEditComponent implements OnInit {
       'imageUrl': new FormControl
     });
 
+    this.actorForm.controls['isDirector'].setValue(false);
+
     if (this.editMode) {
       this.actorService.getActor(this.id)
         .then((actor) => {

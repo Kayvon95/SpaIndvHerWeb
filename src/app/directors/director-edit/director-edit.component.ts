@@ -43,6 +43,8 @@ export class DirectorEditComponent implements OnInit {
       'imageUrl': new FormControl
     });
 
+    this.directorForm.controls['isActor'].setValue(false);
+
     if (this.editMode) {
       this.directorService.getDirector(this.id)
         .then((director) => {
@@ -79,12 +81,12 @@ export class DirectorEditComponent implements OnInit {
           (error) => console.log(error)
         );
       console.log('Submitted director to MongoDb');
-      this.directorService.saveDirectorNeo(this.directorForm.value)
-        .subscribe(
-          (response) => this.router.navigate(['/']),
-          (error) => console.log(error)
-        );
-      console.log('Submitted director to Neo4j');
+      // this.directorService.saveDirectorNeo(this.directorForm.value)
+      //   .subscribe(
+      //     (response) => this.router.navigate(['/']),
+      //     (error) => console.log(error)
+      //   );
+      // console.log('Submitted director to Neo4j');
     }
   }
 

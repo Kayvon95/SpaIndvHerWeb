@@ -20,6 +20,7 @@ export class ActorService {
       .toPromise()
       .then(response => {
         this.actors = response.json() as Actor[];
+        console.log('Actors: ' + this.actors);
         return this.actors;
       })
       .catch(error => {

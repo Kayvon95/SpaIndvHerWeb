@@ -1,10 +1,13 @@
-<div class="row">
-  <div class="col-xs-12">
-    <a routerLink="/actors/create"
-       class="btn btn-success"
-    >Add Actor</a>
-  </div>
-</div>
+<!--<div class="row">-->
+  <!--<div class="col-xs-12">-->
+    <!--<a routerLink="/actors/create"-->
+       <!--class="btn btn-success"-->
+    <!--&gt;Add Actor</a>-->
+  <!--</div>-->
+<!--</div>-->
+<p *ngIf="actorCount == 0">No actors in the database</p>
+<p *ngIf="actorCount == 1">{{actorCount}} actor in the database</p>
+<p *ngIf="actorCount > 1">{{actorCount}} actors in the database</p>
 <hr>
 <div class="row">
   <div class="col-xs-12">
