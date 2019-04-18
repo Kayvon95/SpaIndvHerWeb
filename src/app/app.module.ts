@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -25,6 +26,9 @@ import { ActorItemComponent } from './actors/actor-item/actor-item.component';
 import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
 import { ActorDetailComponent } from './actors/actor-detail/actor-detail.component';
 import { ActorEditComponent } from './actors/actor-edit/actor-edit.component';
+import { LoginComponent } from './login/login.component';
+import {AuthGuardService} from './login/auth-guard.service';
+import {AuthenticationService} from './login/authentication.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,8 @@ import { ActorEditComponent } from './actors/actor-edit/actor-edit.component';
     ActorItemComponent,
     MovieEditComponent,
     ActorDetailComponent,
-    ActorEditComponent
+    ActorEditComponent,
+    LoginComponent
   ],
   imports: [
     AppRoutingModule,
@@ -53,7 +58,7 @@ import { ActorEditComponent } from './actors/actor-edit/actor-edit.component';
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [ActorService, DirectorService, MovieService],
+  providers: [ActorService, DirectorService, MovieService, AuthGuardService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
