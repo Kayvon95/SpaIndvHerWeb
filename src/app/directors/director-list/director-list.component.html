@@ -1,8 +1,11 @@
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-lg-12">
     <a routerLink="/directors/create"
       class="btn btn-success"
       >Add Director</a>
+    <p *ngIf="directors?.length == 0" class="float-right"> No directors found, add one.</p>
+    <p *ngIf="directors?.length == 1" class="float-right">1 director in collection</p>
+    <p *ngIf="directors?.length > 1" class="float-right"> {{directors?.length}} directors in collection</p>
   </div>
 </div>
 <hr>

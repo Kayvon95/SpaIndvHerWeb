@@ -26,9 +26,10 @@ import { ActorItemComponent } from './actors/actor-item/actor-item.component';
 import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
 import { ActorDetailComponent } from './actors/actor-detail/actor-detail.component';
 import { ActorEditComponent } from './actors/actor-edit/actor-edit.component';
-import { LoginComponent } from './login/login.component';
-import {AuthGuardService} from './login/auth-guard.service';
-import {AuthenticationService} from './login/authentication.service';
+import { LoginComponent } from './authentication/login/login.component';
+import {AuthGuardService} from './authentication/auth-guard.service';
+import {AuthenticationService} from './authentication/authentication.service';
+import { SignupComponent } from './authentication/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {AuthenticationService} from './login/authentication.service';
     MovieEditComponent,
     ActorDetailComponent,
     ActorEditComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     AppRoutingModule,

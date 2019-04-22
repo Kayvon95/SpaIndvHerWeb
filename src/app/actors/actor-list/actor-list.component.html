@@ -1,13 +1,6 @@
-<!--<div class="row">-->
-  <!--<div class="col-xs-12">-->
-    <!--<a routerLink="/actors/create"-->
-       <!--class="btn btn-success"-->
-    <!--&gt;Add Actor</a>-->
-  <!--</div>-->
-<!--</div>-->
-<p *ngIf="actorCount == 0">No actors in the database</p>
-<p *ngIf="actorCount == 1">{{actorCount}} actor in the database</p>
-<p *ngIf="actorCount > 1">{{actorCount}} actors in the database</p>
+<p *ngIf="actorCount == 0">No actors in the collection - <a routerLink="/movies">Add them to a movie first!</a></p>
+<p *ngIf="actorCount == 1">{{actorCount}} actor in the collection</p>
+<p *ngIf="actorCount > 1">{{actorCount}} actors in the collection</p>
 <hr>
 <div class="row">
   <div class="col-xs-12">

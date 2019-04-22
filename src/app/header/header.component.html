@@ -22,8 +22,11 @@
           </a>
         </li>
         <li class="nav-item" routerLink="active">
-          <a routerLink="/about" class="nav-link">
-            About
+          <a *ngIf="hasToken" class="nav-link" (click)="onLogout()">
+            LogOut
+          </a>
+          <a *ngIf="!hasToken" routerLink="/login" class="nav-link">
+            Log in
           </a>
         </li>
       </ul>
