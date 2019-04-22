@@ -56,7 +56,7 @@
         </li>
       </ul>
     </div>
-    <div class="col-7" *ngIf="movies?.actors?.length > 0">
+    <div class="col-7" *ngIf="movie?.actors?.length > 0">
       <ul class="list-group">
         <li class="list-group-item">
           <app-actor-item *ngFor="let actor of movie?.actors" [actor]="actor" [movie]="movie"></app-actor-item>
