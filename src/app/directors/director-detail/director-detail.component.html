@@ -42,7 +42,7 @@
            class="btn btn-info pull-right">Add movie</a>
       </div>
     </div>
-    <div class="col-7" *ngIf="director?.movies?.length > 0">
+    <div class="col-8" *ngIf="director?.movies?.length > 0">
       <ul class="list-group">
         <li class="list-group-item">
           <app-movie-item *ngFor="let movie of director.movies" [movie]="movie" [director]="director"></app-movie-item>
@@ -50,5 +50,4 @@
       </ul>
     </div>
   </div>
-
 </div>

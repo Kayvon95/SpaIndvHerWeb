@@ -13,8 +13,7 @@ export class DirectorEditComponent implements OnInit {
   directorForm: FormGroup;
   editMode = false;
   id = '';
-  editedDirector = Director;
-  lastName: string;
+  director: Director;
 
   constructor(
     private router: Router,
@@ -48,7 +47,7 @@ export class DirectorEditComponent implements OnInit {
     if (this.editMode) {
       this.directorService.getDirector(this.id)
         .then((director) => {
-          this.lastName = director.lastName;
+          this.director = director;
           this.directorForm.setValue({
             firstName: director.firstName,
             lastName: director.lastName,
@@ -68,12 +67,6 @@ export class DirectorEditComponent implements OnInit {
           (response) => this.router.navigate(['/']),
           (error) => console.log(error)
         );
-      this.directorService.editDirectorNeo(this.lastName, this.directorForm.value)
-        .subscribe(
-          (response) => console.log(response),
-          (error) => console.log(error)
-        );
-      console.log('Submitting edited director ' + this.lastName);
     } else {
       this.directorService.saveDirector(this.directorForm.value)
         .subscribe(
@@ -81,12 +74,6 @@ export class DirectorEditComponent implements OnInit {
           (error) => console.log(error)
         );
       console.log('Submitted director to MongoDb');
-      // this.directorService.saveDirectorNeo(this.directorForm.value)
-      //   .subscribe(
-      //     (response) => this.router.navigate(['/']),
-      //     (error) => console.log(error)
-      //   );
-      // console.log('Submitted director to Neo4j');
     }
   }
 
@@ -96,15 +83,13 @@ export class DirectorEditComponent implements OnInit {
         (response) => this.router.navigate(['/']),
         (error) => console.log(error)
       );
-    this.directorService.deleteDirectorNeo(this.directorForm.value)
-      .subscribe(
-        (response) => this.router.navigate(['/']),
-        (error) => console.log(error)
-      );
   }
 
   onCancel() {
-    this.router.navigate(['/directors/' + this.id]);
+    if (this.editMode) {
+      this.router.navigate(['/directors/' + this.id]);
+    } else {
+      this.router.navigate(['/directors']);
+    }
   }
-
 }

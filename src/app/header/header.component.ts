@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   public hasToken = false;
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
     if (localStorage.getItem('auth_token') != null) {
@@ -19,8 +19,6 @@ export class HeaderComponent implements OnInit {
   }
 
   public onLogout() {
-    // this.token = '';
     localStorage.removeItem('auth_token');
-    this.router.navigate(['/']);
   }
 }

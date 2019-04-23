@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-12">
-    <p *ngIf="movies.length == 0">No movies in the collection - <a routerLink="/">Add them to a director first!</a></p>
+    <p *ngIf="movies?.length == 0">No movies in the collection - <a routerLink="/">Add them to a director first!</a></p>
     <p *ngIf="movies?.length == 1">1 movie in collection</p>
     <p *ngIf="movies?.length > 1"> {{movies?.length}} movies in collection</p>
   </div>

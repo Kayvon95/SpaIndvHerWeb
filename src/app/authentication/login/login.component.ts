@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   public onLogin() {
     this.authenticationService.login(this.userForm.value.username, this.userForm.value.password);
-    this.router.navigate(['/']);
+    // this.router.navigate(['/']);
   }
 
   public onCancel() {

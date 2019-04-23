@@ -3,6 +3,7 @@ import {ActorService} from '../actor.service';
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {MovieService} from '../../movies/movie.service';
+import {Actor} from '../actor.model';
 
 @Component({
   selector: 'app-actor-edit',
@@ -15,6 +16,7 @@ export class ActorEditComponent implements OnInit {
   addToMovie = false;
   id = '';
   movieId = '';
+  actor: Actor;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -51,6 +53,7 @@ export class ActorEditComponent implements OnInit {
     if (this.editMode) {
       this.actorService.getActor(this.id)
         .then((actor) => {
+          this.actor = actor;
           this.actorForm.setValue({
             firstName: actor.firstName,
             lastName: actor.lastName,
@@ -73,10 +76,7 @@ export class ActorEditComponent implements OnInit {
           (error) => console.log(error)
         );
     } else if (this.addToMovie) {
-      console.log('Adding actor to movie ' + this.movieId);
-      console.log('MovieID: ' + this.movieId);
       const stringId = this.movieId.toString();
-      console.log('MovieID to String: ' + stringId)
       this.movieService.addActorToMovie(stringId, this.actorForm.value)
         .subscribe(
           (response) => this.router.navigate(['/movies/' + this.movieId]),

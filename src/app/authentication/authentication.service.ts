@@ -19,12 +19,10 @@ export class AuthenticationService {
   }
 
   signUp(username: string, password: string) {
-    console.log('@AuthService: signup() called');
      return this.http.post('http://localhost:5000/api/v1' + '/signup', {username: username, password: password})
        .subscribe(response => {
          const textResponse = response.text();
          const jsonResponse = JSON.parse(textResponse);
-         // console.log(jsonResponse.token);
          localStorage.setItem('auth_token', jsonResponse.token);
        });
   }
@@ -40,17 +38,13 @@ export class AuthenticationService {
       });
   }
 
-  isUserLoggedIn(): boolean {
+  verifyTokenJWT(): boolean {
     const token = localStorage.getItem('auth_token');
     this.headers.append( 'Authorization', token );
-    // const header = new Headers({'Content-Type': 'application/json', 'Authorization':
-    //   'Bearer ' + localStorage.getItem('auth_token')});
     if (token) {
-      console.log('token found');
-      // this.http.post(this.serverUrl + '/verifyToken', { headers: header})
+      // console.log('token found');
       this.http.post(this.serverUrl + '/verifyToken', {auth_token: ''}, {headers: this.headers})
         .subscribe( response => {
-          console.log(response);
           const textResponse = response.text();
           const jsonResponse = JSON.parse(textResponse);
           console.log(jsonResponse.sub);

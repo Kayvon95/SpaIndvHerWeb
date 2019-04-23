@@ -25,15 +25,10 @@ export class MovieEditComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params) => {
-          console.log(params);
           this.id = params['id'];
           this.editMode = params['id'] != null;
-          console.log('editMode ' + this.editMode);
-
           this.directorId = params['directorid'];
           this.addToDirector = params['directorid'] != null;
-          console.log(this.directorId);
-          console.log(this.addToDirector);
           this.initForm();
         }
       );
@@ -93,11 +88,6 @@ export class MovieEditComponent implements OnInit {
           (response) => this.router.navigate(['/movies']),
           (error) => console.log(error)
         );
-      // this.movieService.saveMovieNeo(this.movieForm.value)
-      //   .subscribe(
-      //     (response) => console.log(response),
-      //     (error) => console.log(error)
-      //   );
     }
   }
 
@@ -111,6 +101,10 @@ export class MovieEditComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['/movies/' + this.id]);
+    if (this.editMode) {
+      this.router.navigate(['/movies/' + this.id]);
+    } else {
+      this.router.navigate(['/movies']);
+    }
   }
 }

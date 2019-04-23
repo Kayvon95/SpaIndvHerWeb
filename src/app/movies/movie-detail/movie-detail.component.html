@@ -38,6 +38,10 @@
         <td>Genre: </td>
         <td>{{movie?.genre}}</td>
       </tr>
+      <tr *ngIf="movie?.actors?.length > 0">
+        <td>Registered actors:</td>
+        <td> {{movie?.actors?.length}}</td>
+      </tr>
     </table>
   </div>
   <br>
@@ -49,14 +53,7 @@
       <a routerLink="/movies/{{movie?._id}}/add-actor"
          class="btn btn-info pull-right">Add actor</a>
     </div>
-    <div class="col-7">
-      <ul class="list-group">
-        <li class="list-group-item">
-          <app-actor-item *ngFor="let actor of movie?.actors" [actor]="actor" [movie]="movie"></app-actor-item>
-        </li>
-      </ul>
-    </div>
-    <div class="col-7" *ngIf="movie?.actors?.length > 0">
+    <div class="col-8">
       <ul class="list-group">
         <li class="list-group-item">
           <app-actor-item *ngFor="let actor of movie?.actors" [actor]="actor" [movie]="movie"></app-actor-item>

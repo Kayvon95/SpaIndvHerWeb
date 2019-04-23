@@ -20,10 +20,4 @@ export class MovieItemComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  onDetail() {
-    console.log(this.movie);
-    console.log(this.route);
-    this.router.navigate(['detail', this.movie._id], {relativeTo: this.route});
-  }
 }

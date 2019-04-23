@@ -12,7 +12,7 @@ export class AuthGuardService implements CanLoad, CanActivate {
     console.log('canLoad() called');
     const url: string = route.path;
     console.log('Url:' + url);
-    if (this.authService.isUserLoggedIn()) {
+    if (this.authService.verifyTokenJWT()) {
       return true;
     }
     return false;
@@ -22,7 +22,7 @@ export class AuthGuardService implements CanLoad, CanActivate {
     const url: string = state.url;
     console.log('canActivate() called');
     console.log('Url:' + url);
-    if (this.authService.isUserLoggedIn()) {
+    if (this.authService.verifyTokenJWT()) {
       return true;
     }
     this.router.navigate(['/']);
